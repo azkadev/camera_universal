@@ -45,6 +45,31 @@ class CameraController {
     return;
   }
 
+  Future<void> initializeCameraById({
+    required int camera_id,
+    required void Function(void Function() callback) setState,
+    required bool Function() mounted,
+  }) async {
+    if (!is_camera_init) {
+      return;
+    }
+    if (isMobile) {
+      for (var i = 0; i < camera_mobile_datas.length; i++) {
+        camera_package.CameraDescription camera_mobile_data = camera_mobile_datas[i];
+        if (i == (camera_id - 1)) {
+          camera_mobile_controller = camera_package.CameraController(
+            camera_mobile_data,
+            camera_package.ResolutionPreset.max,
+          );
+          is_select_camera = true;
+          await activateCamera(setState: setState, mounted: mounted);
+          return;
+        }
+      }
+    }
+    return;
+  }
+
   Future<void> activateCamera({
     required void Function(void Function() callback) setState,
     required bool Function() mounted,

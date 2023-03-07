@@ -50,7 +50,7 @@ packages:
     source: hosted
     version: "2.4.0"
   camera_universal:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: ".."
       relative: true
@@ -309,7 +309,7 @@ packages:
     source: hosted
     version: "2.1.4"
   video_player:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: video_player
       sha256: "59f7f31c919c59cbedd37c617317045f5f650dc0eeb568b0b0de9a36472bdb28"

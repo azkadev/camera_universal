@@ -43,6 +43,32 @@ extension CameraControllerExtensions on CameraController {
     return;
   }
 
+  Future<void> action_change_camera({
+    required int camera_id,
+    required void Function(void Function() callback) setState,
+    required bool Function() mounted,
+    required void Function() onCameraNotInit,
+    required void Function() onCameraNotSelect,
+    required void Function() onCameraNotActive,
+  }) async {
+    bool is_check_camera = util_check_camera(
+      onCameraNotInit: onCameraNotInit,
+      onCameraNotSelect: onCameraNotSelect,
+      onCameraNotActive: onCameraNotActive,
+    );
+    if (!is_check_camera) {
+      return;
+    }
+    if (isMobile) {
+      await initializeCameraById(
+        camera_id: camera_id,
+        setState: setState,
+        mounted: mounted,
+      );
+    }
+    return;
+  }
+
   action_start_video_recording({
     required void Function() onCameraNotInit,
     required void Function() onCameraNotSelect,
@@ -77,6 +103,25 @@ extension CameraControllerExtensions on CameraController {
     if (isMobile) {
       await camera_mobile_controller.pauseVideoRecording();
     }
+  }
+
+  int action_get_camera_count({
+    required void Function() onCameraNotInit,
+    required void Function() onCameraNotSelect,
+    required void Function() onCameraNotActive,
+  }) {
+    bool is_check_camera = util_check_camera(
+      onCameraNotInit: onCameraNotInit,
+      onCameraNotSelect: onCameraNotSelect,
+      onCameraNotActive: onCameraNotActive,
+    );
+    if (!is_check_camera) {
+      return 0;
+    }
+    if (isMobile) {
+      return camera_mobile_datas.length;
+    }
+    return 0;
   }
 
   int action_get_camera_id({
@@ -186,6 +231,7 @@ extension CameraControllerExtensions on CameraController {
     }
     if (isMobile) {
       var res = (await camera_mobile_controller.takePicture());
+      
       print(await res.readAsBytes());
     }
   }

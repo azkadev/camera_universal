@@ -24,15 +24,14 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  video_player: ^2.5.1 
+  camera_universal: 
+    path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  video_player: ^2.5.1 
-  camera_universal: 
-    path: ../
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
