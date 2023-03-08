@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:camera_universal/camera_universal.dart';
@@ -22,6 +21,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   CameraController cameraController = CameraController();
+  String error_msg = "";
   @override
   void initState() {
     super.initState();
@@ -29,17 +29,23 @@ class _MainAppState extends State<MainApp> {
   }
 
   Future<void> task() async {
-    await cameraController.initializeCameras();
-    await cameraController.initializeCamera(
-      setState: setState,
-    );
+    try {
+      await cameraController.initializeCameras();
+      await cameraController.initializeCamera(
+        setState: setState,
+      );
 
-    await cameraController.activateCamera(
-      setState: setState,
-      mounted: () {
-        return mounted;
-      },
-    );
+      await cameraController.activateCamera(
+        setState: setState,
+        mounted: () {
+          return mounted;
+        },
+      );
+    } catch (e) {
+      setState(() {
+        error_msg = "error";
+      });
+    }
   }
 
   @override
@@ -51,25 +57,32 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Camera(
-        cameraController: cameraController,
-        onCameraNotInit: (context) {
-          return const SizedBox.shrink();
-        },
-        onCameraNotSelect: (context) {
-          return const SizedBox.shrink();
-        },
-        onCameraNotActive: (context) {
-          return const SizedBox.shrink();
-        },
-        onPlatformNotSupported: (context) {
-          return const SizedBox.shrink();
-        },
+      body: Visibility(
+        visible: error_msg.isEmpty,
+        replacement: Text(error_msg),
+        child: Camera(
+          cameraController: cameraController,
+          onCameraNotInit: (context) {
+            return Text("Camera not init");
+            return const SizedBox.shrink();
+          },
+          onCameraNotSelect: (context) {
+            return Text("Camera not select");
+            return const SizedBox.shrink();
+          },
+          onCameraNotActive: (context) {
+            return Text("Camera not active");
+            return const SizedBox.shrink();
+          },
+          onPlatformNotSupported: (context) {
+            return Text("Camera not supported");
+            return const SizedBox.shrink();
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          if (kDebugMode) {
-            print(
+          print(
             cameraController.action_change_camera(
               camera_id: 1,
               setState: setState,
@@ -81,7 +94,6 @@ class _MainAppState extends State<MainApp> {
               onCameraNotActive: () {},
             ),
           );
-          }
         },
         child: const Icon(
           Icons.add_circle_outline_sharp,

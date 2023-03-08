@@ -20,7 +20,6 @@ void main(List<String> args) async {
     ),
   );
 }
-
 class MainApp extends StatefulWidget {
   const MainApp({
     super.key,
@@ -28,7 +27,6 @@ class MainApp extends StatefulWidget {
   @override
   State<MainApp> createState() => _MainAppState();
 }
-
 class _MainAppState extends State<MainApp> {
   CameraController cameraController = CameraController();
   @override
@@ -36,7 +34,6 @@ class _MainAppState extends State<MainApp> {
     super.initState();
     task();
   }
-
   Future<void> task() async {
     await cameraController.initializeCameras();
     await cameraController.initializeCamera(
@@ -49,13 +46,11 @@ class _MainAppState extends State<MainApp> {
       },
     );
   }
-
   @override
   void dispose() {
     cameraController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,5 +93,4 @@ class _MainAppState extends State<MainApp> {
     );
   }
 }
-
 ```
