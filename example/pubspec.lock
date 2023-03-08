@@ -55,7 +55,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.0"
+    version: "0.0.1"
   camera_web:
     dependency: transitive
     description:
