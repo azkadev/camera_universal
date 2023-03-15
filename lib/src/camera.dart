@@ -1,9 +1,40 @@
 // ignore_for_file: non_constant_identifier_names
 
+import "package:flutter/widgets.dart";
+import "package:universal_io/io.dart";
+
 import "camera_app.dart";
 export "camera_app.dart";
 
 extension CameraControllerExtensions on CameraController {
+  Widget widget_build_preview({
+    required void Function() onCameraNotInit,
+    required void Function() onCameraNotSelect,
+    required void Function() onCameraNotActive,
+  }) {
+    if (!is_camera_init) {
+      onCameraNotInit();
+      return const SizedBox.shrink();
+    }
+    if (!is_select_camera) {
+      onCameraNotSelect();
+      return const SizedBox.shrink();
+    }
+    if (!is_camera_active) {
+      onCameraNotActive();
+      return const SizedBox.shrink();
+    }
+    if (isMobile) {
+      return camera_mobile_controller.buildPreview();
+    }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        return camera_windows.buildPreview(camera_id);
+      }
+    }
+    return const SizedBox.shrink();
+  }
+
   bool util_check_camera({
     required void Function() onCameraNotInit,
     required void Function() onCameraNotSelect,
@@ -231,7 +262,7 @@ extension CameraControllerExtensions on CameraController {
     }
     if (isMobile) {
       var res = (await camera_mobile_controller.takePicture());
-      
+
       print(await res.readAsBytes());
     }
   }

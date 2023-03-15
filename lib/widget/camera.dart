@@ -9,7 +9,7 @@ class Camera extends StatefulWidget {
   final Widget Function(BuildContext context) onCameraNotInit;
   final Widget Function(BuildContext context) onCameraNotSelect;
   final Widget Function(BuildContext context) onCameraNotActive;
-  
+
   final Widget Function(BuildContext context) onPlatformNotSupported;
   const Camera({
     super.key,
@@ -47,6 +47,22 @@ class _CameraState extends State<Camera> {
           widget.cameraController.camera_mobile_controller,
         ),
       );
+    }
+    if (Platform.isWindows) {
+      return Visibility(
+          visible: widget.cameraController.is_camera_init,
+          replacement: const CircularProgressIndicator(),
+          child: widget.cameraController.widget_build_preview(
+            onCameraNotInit: (){
+
+            },
+            onCameraNotSelect: (){
+
+            },
+            onCameraNotActive: (){
+
+            },
+          ));
     }
     return widget.onPlatformNotSupported(context);
   }

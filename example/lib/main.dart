@@ -41,7 +41,9 @@ class _MainAppState extends State<MainApp> {
           return mounted;
         },
       );
-    } catch (e) {
+    } catch (e,stack) {
+      print(e);
+      print(stack);
       setState(() {
         error_msg = "error";
       });

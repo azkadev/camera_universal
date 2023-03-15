@@ -21,10 +21,10 @@ packages:
     dependency: "direct main"
     description:
       name: camera
-      sha256: e7ac55af24a890d20276821eb3c95857074d03b7de6f9892b99a205ee30bd179
+      sha256: ad1c53c554a2f3e5708f3b01eb738d60b902bb61f7f4ad420c65c715e65a7379
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.3"
+    version: "0.10.3+2"
   camera_android:
     dependency: transitive
     description:
@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.1+1"
+  camera_windows:
+    dependency: "direct main"
+    description:
+      name: camera_windows
+      sha256: "5430903d0c06a6d19830e2a0cb17c1b9588b2164583fdeb314d37609a5c896ec"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.1+5"
   characters:
     dependency: transitive
     description:
