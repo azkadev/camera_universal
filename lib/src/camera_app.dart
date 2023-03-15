@@ -85,6 +85,22 @@ class CameraController {
         }
       }
     }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        for (var i = 0; i < camera_mobile_datas.length; i++) {
+          camera_package.CameraDescription camera_mobile_data = camera_mobile_datas[i];
+          if (i == (camera_id - 1)) {
+            camera_id = await camera_windows.createCamera(
+              camera_mobile_data,
+              camera_package.ResolutionPreset.max,
+            );
+            is_select_camera = true;
+            await activateCamera(setState: setState, mounted: mounted);
+            return;
+          }
+        }
+      }
+    }
     return;
   }
 
@@ -133,7 +149,7 @@ class CameraController {
     }
     if (isDesktop) {
       if (Platform.isWindows) {
-       await camera_windows.dispose(camera_id);
+        await camera_windows.dispose(camera_id);
       }
     }
   }

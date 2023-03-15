@@ -97,6 +97,13 @@ extension CameraControllerExtensions on CameraController {
         mounted: mounted,
       );
     }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        await dispose();
+        
+
+      }
+    }
     return;
   }
 
@@ -116,6 +123,11 @@ extension CameraControllerExtensions on CameraController {
     if (isMobile) {
       var res = (await camera_mobile_controller.startVideoRecording());
     }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        await camera_windows.startVideoRecording(camera_id);
+      }
+    }
   }
 
   action_pause_video_recording({
@@ -134,6 +146,11 @@ extension CameraControllerExtensions on CameraController {
     if (isMobile) {
       await camera_mobile_controller.pauseVideoRecording();
     }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        await camera_windows.pauseVideoRecording(camera_id);
+      }
+    }
   }
 
   int action_get_camera_count({
@@ -151,6 +168,12 @@ extension CameraControllerExtensions on CameraController {
     }
     if (isMobile) {
       return camera_mobile_datas.length;
+    }
+
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        return camera_mobile_datas.length;
+      }
     }
     return 0;
   }
@@ -171,6 +194,11 @@ extension CameraControllerExtensions on CameraController {
     if (isMobile) {
       return camera_mobile_controller.cameraId;
     }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        return camera_id;
+      }
+    }
     return 0;
   }
 
@@ -189,6 +217,9 @@ extension CameraControllerExtensions on CameraController {
     }
     if (isMobile) {
       return camera_mobile_controller.enableAudio;
+    }
+    if (isDesktop) {
+      if (Platform.isWindows) {}
     }
     return false;
   }
@@ -209,6 +240,11 @@ extension CameraControllerExtensions on CameraController {
     if (isMobile) {
       await camera_mobile_controller.pausePreview();
     }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        await camera_windows.pausePreview(camera_id);
+      }
+    }
   }
 
   action_resume_preview({
@@ -227,6 +263,11 @@ extension CameraControllerExtensions on CameraController {
     if (isMobile) {
       await camera_mobile_controller.resumePreview();
     }
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        await camera_windows.resumePreview(camera_id);
+      }
+    }
   }
 
   action_stop_video_recording({
@@ -244,6 +285,12 @@ extension CameraControllerExtensions on CameraController {
     }
     if (isMobile) {
       var res = (await camera_mobile_controller.stopVideoRecording());
+    }
+
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        await camera_windows.stopVideoRecording(camera_id);
+      }
     }
   }
 
@@ -264,6 +311,12 @@ extension CameraControllerExtensions on CameraController {
       var res = (await camera_mobile_controller.takePicture());
 
       print(await res.readAsBytes());
+    }
+
+    if (isDesktop) {
+      if (Platform.isWindows) {
+        await camera_windows.takePicture(camera_id);
+      }
     }
   }
 }
