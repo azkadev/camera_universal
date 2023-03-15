@@ -100,8 +100,12 @@ extension CameraControllerExtensions on CameraController {
     if (isDesktop) {
       if (Platform.isWindows) {
         await dispose();
-        
 
+        await initializeCameraById(
+          camera_id: camera_id,
+          setState: setState,
+          mounted: mounted,
+        );
       }
     }
     return;
