@@ -50,19 +50,14 @@ class _CameraState extends State<Camera> {
     }
     if (Platform.isWindows) {
       return Visibility(
-          visible: widget.cameraController.is_camera_init,
-          replacement: const CircularProgressIndicator(),
-          child: widget.cameraController.widget_build_preview(
-            onCameraNotInit: (){
-
-            },
-            onCameraNotSelect: (){
-
-            },
-            onCameraNotActive: (){
-
-            },
-          ));
+        visible: widget.cameraController.is_camera_init,
+        replacement: const CircularProgressIndicator(),
+        child: widget.cameraController.widget_build_preview(
+          onCameraNotInit: () {},
+          onCameraNotSelect: () {},
+          onCameraNotActive: () {},
+        ),
+      );
     }
     return widget.onPlatformNotSupported(context);
   }
