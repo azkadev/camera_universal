@@ -41,7 +41,7 @@ class _MainAppState extends State<MainApp> {
           return mounted;
         },
       );
-    } catch (e,stack) {
+    } catch (e, stack) {
       print(e);
       print(stack);
       setState(() {
@@ -84,21 +84,22 @@ class _MainAppState extends State<MainApp> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          print(
-            cameraController.action_change_camera(
-              camera_id: 1,
-              setState: setState,
-              mounted: () {
-                return mounted;
-              },
-              onCameraNotInit: () {},
-              onCameraNotSelect: () {},
-              onCameraNotActive: () {},
-            ),
-          );
+          print("akza");
+          // print(
+          //   cameraController.action_change_camera(
+          //     camera_id: 1,
+          //     setState: setState,
+          //     mounted: () {
+          //       return mounted;
+          //     },
+          //     onCameraNotInit: () {},
+          //     onCameraNotSelect: () {},
+          //     onCameraNotActive: () {},
+          //   ),
+          // );
         },
         child: const Icon(
-          Icons.add_circle_outline_sharp,
+          Icons.abc,
         ),
       ),
     );

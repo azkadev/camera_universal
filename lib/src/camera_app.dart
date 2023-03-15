@@ -126,11 +126,12 @@ class CameraController {
       } catch (e) {
         print(e);
       }
-    }
-    if (isDesktop) {
-      await camera_windows.initializeCamera(camera_id);
-      is_camera_active = true;
-      setState(() {});
+    } else if (isDesktop) {
+      if (Platform.isWindows) {
+        await camera_windows.initializeCamera(camera_id);
+        is_camera_active = true;
+        setState(() {});
+      }
     }
   }
 
@@ -146,8 +147,7 @@ class CameraController {
     }
     if (isMobile) {
       await camera_mobile_controller.dispose();
-    }
-    if (isDesktop) {
+    } else if (isDesktop) {
       if (Platform.isWindows) {
         await camera_windows.dispose(camera_id);
       }

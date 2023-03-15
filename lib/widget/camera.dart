@@ -40,6 +40,16 @@ class _CameraState extends State<Camera> {
       return const CircularProgressIndicator();
     }
     if (Platform.isAndroid || Platform.isIOS || kIsWeb) {
+      print("ok");
+      return Visibility(
+        visible: widget.cameraController.is_camera_init,
+        replacement: const CircularProgressIndicator(),
+        child: widget.cameraController.widget_build_preview(
+          onCameraNotInit: () {},
+          onCameraNotSelect: () {},
+          onCameraNotActive: () {},
+        ),
+      );
       return Visibility(
         visible: widget.cameraController.camera_mobile_controller.value.isInitialized,
         replacement: const CircularProgressIndicator(),
