@@ -27,13 +27,6 @@ jobs:
         with:
           submodules: true
 
-      
-      - uses: actions/cache@v3
-        id: cache
-        with:
-          path: path/to/dependencies
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
@@ -78,7 +71,7 @@ jobs:
           cd example
           flutter pub get
           flutter pub run packagex create .
-          flutter pub run packagex build web
+          flutter pub run packagex build all
           if [ "$RUNNER_OS" == "Linux" ]; then
             mv build/packagex/* ../build/
           fi
