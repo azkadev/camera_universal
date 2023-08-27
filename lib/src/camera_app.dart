@@ -51,6 +51,7 @@ class CameraController {
         camera_package.ResolutionPreset.max,
       );
       is_select_camera = true;
+      camera_id = camera_mobile_controller.cameraId;
     }
 
     if (isDesktop) {

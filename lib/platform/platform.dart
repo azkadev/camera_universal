@@ -1,4 +1,4 @@
- import "package:flutter/foundation.dart";
+import "package:flutter/foundation.dart";
 import "package:universal_io/io.dart";
 
 extension PlatformExtensionHelpes on Platform {
@@ -7,6 +7,7 @@ extension PlatformExtensionHelpes on Platform {
   }
 
   bool isDesktop() {
-    return ((Platform.isWindows || Platform.isLinux || Platform.isMacOS) && !(kIsWeb));
+    return ((Platform.isWindows || Platform.isLinux || Platform.isMacOS) &&
+        !(kIsWeb));
   }
 }

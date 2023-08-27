@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import "package:camera_universal/src/camera.dart" as camera;
@@ -27,7 +29,9 @@ class Camera extends StatefulWidget {
 class _CameraState extends State<Camera> {
   @override
   Widget build(BuildContext context) {
-    if (!widget.cameraController.is_camera_init || !widget.cameraController.is_select_camera || !widget.cameraController.is_camera_active) {
+    if (!widget.cameraController.is_camera_init ||
+        !widget.cameraController.is_select_camera ||
+        !widget.cameraController.is_camera_active) {
       if (!widget.cameraController.is_camera_init) {
         return widget.onCameraNotInit(context);
       }
@@ -51,7 +55,8 @@ class _CameraState extends State<Camera> {
         ),
       );
       return Visibility(
-        visible: widget.cameraController.camera_mobile_controller.value.isInitialized,
+        visible: widget
+            .cameraController.camera_mobile_controller.value.isInitialized,
         replacement: const CircularProgressIndicator(),
         child: camera_package.CameraPreview(
           widget.cameraController.camera_mobile_controller,

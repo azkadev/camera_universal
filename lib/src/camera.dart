@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, unused_local_variable
 
 import "package:flutter/widgets.dart";
 import "package:universal_io/io.dart";
@@ -74,7 +74,7 @@ extension CameraControllerExtensions on CameraController {
   }
 
   Future<void> action_change_camera({
-    required int camera_id,
+    required int cameraId,
     required void Function(void Function() callback) setState,
     required bool Function() mounted,
     required void Function() onCameraNotInit,
@@ -89,6 +89,7 @@ extension CameraControllerExtensions on CameraController {
     if (!is_check_camera) {
       return;
     }
+      camera_id = cameraId;
     if (isMobile) {
       await initializeCameraById(
         camera_id: camera_id,
@@ -286,7 +287,7 @@ extension CameraControllerExtensions on CameraController {
     }
   }
 
-  action_take_picture({
+  Future<CameraTakePictureData?> action_take_picture({
     required void Function() onCameraNotInit,
     required void Function() onCameraNotSelect,
     required void Function() onCameraNotActive,
@@ -297,16 +298,34 @@ extension CameraControllerExtensions on CameraController {
       onCameraNotActive: onCameraNotActive,
     );
     if (!is_check_camera) {
-      return;
+      return null;
     }
     if (isMobile) {
       var res = (await camera_mobile_controller.takePicture());
 
-      print(await res.readAsBytes());
+      return CameraTakePictureData(
+        mimeType: res.mimeType ?? "",
+        path: res.path,
+        name: res.name,
+      );
     } else if (isDesktop) {
       if (Platform.isWindows) {
-        await camera_windows.takePicture(camera_id);
+        var res = await camera_windows.takePicture(camera_id);
+        return CameraTakePictureData(
+          mimeType: res.mimeType ?? "",
+          path: res.path,
+          name: res.name,
+        );
       }
     }
+    return null;
   }
+}
+
+class CameraTakePictureData {
+  String mimeType;
+  String path;
+  String name;
+
+  CameraTakePictureData({required this.mimeType, required this.path, required this.name});
 }
