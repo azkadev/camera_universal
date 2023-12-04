@@ -125,7 +125,9 @@ class CameraController {
 
         setState(() {});
       } catch (e) {
-        print(e);
+        if (kDebugMode) {
+          print(e);
+        }
       }
     } else if (isDesktop) {
       if (Platform.isWindows) {

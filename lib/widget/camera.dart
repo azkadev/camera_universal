@@ -44,7 +44,9 @@ class _CameraState extends State<Camera> {
       return const CircularProgressIndicator();
     }
     if (Platform.isAndroid || Platform.isIOS || kIsWeb) {
-      print("ok");
+      if (kDebugMode) {
+        print("ok");
+      }
       return Visibility(
         visible: widget.cameraController.is_camera_init,
         replacement: const CircularProgressIndicator(),
