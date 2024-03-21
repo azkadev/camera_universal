@@ -1,97 +1,53 @@
-# Camera Universal 
+IyBDYW1lcmEgVW5pdmVyc2FsIAoKCiMjIEluc3RhbGwKCmBgYGJhc2gKZmx1
+dHRlciBwdWIgYWRkIGNhbWVyYV91bml2ZXJzYWwKYGBgCgojIyBRdWlja3N0
+YXJ0CgpgYGBkYXJ0CmltcG9ydCAncGFja2FnZTpmbHV0dGVyL2ZvdW5kYXRp
+b24uZGFydCc7CmltcG9ydCAncGFja2FnZTpmbHV0dGVyL21hdGVyaWFsLmRh
+cnQnOwppbXBvcnQgJ3BhY2thZ2U6Y2FtZXJhX3VuaXZlcnNhbC9jYW1lcmFf
+dW5pdmVyc2FsLmRhcnQnOwp2b2lkIG1haW4oTGlzdDxTdHJpbmc+IGFyZ3Mp
+IGFzeW5jIHsKICBXaWRnZXRzRmx1dHRlckJpbmRpbmcuZW5zdXJlSW5pdGlh
+bGl6ZWQoKTsKICBydW5BcHAoCiAgICBjb25zdCBNYXRlcmlhbEFwcCgKICAg
+ICAgaG9tZTogTWFpbkFwcCgpLAogICAgKSwKICApOwp9CmNsYXNzIE1haW5B
+cHAgZXh0ZW5kcyBTdGF0ZWZ1bFdpZGdldCB7CiAgY29uc3QgTWFpbkFwcCh7
+CiAgICBzdXBlci5rZXksCiAgfSk7CiAgQG92ZXJyaWRlCiAgU3RhdGU8TWFp
+bkFwcD4gY3JlYXRlU3RhdGUoKSA9PiBfTWFpbkFwcFN0YXRlKCk7Cn0KY2xh
+c3MgX01haW5BcHBTdGF0ZSBleHRlbmRzIFN0YXRlPE1haW5BcHA+IHsKICBD
+YW1lcmFDb250cm9sbGVyIGNhbWVyYUNvbnRyb2xsZXIgPSBDYW1lcmFDb250
+cm9sbGVyKCk7CiAgQG92ZXJyaWRlCiAgdm9pZCBpbml0U3RhdGUoKSB7CiAg
+ICBzdXBlci5pbml0U3RhdGUoKTsKICAgIHRhc2soKTsKICB9CiAgRnV0dXJl
+PHZvaWQ+IHRhc2soKSBhc3luYyB7CiAgICBhd2FpdCBjYW1lcmFDb250cm9s
+bGVyLmluaXRpYWxpemVDYW1lcmFzKCk7CiAgICBhd2FpdCBjYW1lcmFDb250
+cm9sbGVyLmluaXRpYWxpemVDYW1lcmEoCiAgICAgIHNldFN0YXRlOiBzZXRT
+dGF0ZSwKICAgICk7CiAgICBhd2FpdCBjYW1lcmFDb250cm9sbGVyLmFjdGl2
+YXRlQ2FtZXJhKAogICAgICBzZXRTdGF0ZTogc2V0U3RhdGUsCiAgICAgIG1v
+dW50ZWQ6ICgpIHsKICAgICAgICByZXR1cm4gbW91bnRlZDsKICAgICAgfSwK
+ICAgICk7CiAgfQogIEBvdmVycmlkZQogIHZvaWQgZGlzcG9zZSgpIHsKICAg
+IGNhbWVyYUNvbnRyb2xsZXIuZGlzcG9zZSgpOwogICAgc3VwZXIuZGlzcG9z
+ZSgpOwogIH0KICBAb3ZlcnJpZGUKICBXaWRnZXQgYnVpbGQoQnVpbGRDb250
+ZXh0IGNvbnRleHQpIHsKICAgIHJldHVybiBTY2FmZm9sZCgKICAgICAgYm9k
+eTogQ2FtZXJhKAogICAgICAgIGNhbWVyYUNvbnRyb2xsZXI6IGNhbWVyYUNv
+bnRyb2xsZXIsCiAgICAgICAgb25DYW1lcmFOb3RJbml0OiAoY29udGV4dCkg
+ewogICAgICAgICAgcmV0dXJuIGNvbnN0IFNpemVkQm94LnNocmluaygpOwog
+ICAgICAgIH0sCiAgICAgICAgb25DYW1lcmFOb3RTZWxlY3Q6IChjb250ZXh0
+KSB7CiAgICAgICAgICByZXR1cm4gY29uc3QgU2l6ZWRCb3guc2hyaW5rKCk7
+CiAgICAgICAgfSwKICAgICAgICBvbkNhbWVyYU5vdEFjdGl2ZTogKGNvbnRl
+eHQpIHsKICAgICAgICAgIHJldHVybiBjb25zdCBTaXplZEJveC5zaHJpbmso
+KTsKICAgICAgICB9LAogICAgICAgIG9uUGxhdGZvcm1Ob3RTdXBwb3J0ZWQ6
+IChjb250ZXh0KSB7CiAgICAgICAgICByZXR1cm4gY29uc3QgU2l6ZWRCb3gu
+c2hyaW5rKCk7CiAgICAgICAgfSwKICAgICAgKSwKICAgICAgZmxvYXRpbmdB
+Y3Rpb25CdXR0b246IEZsb2F0aW5nQWN0aW9uQnV0dG9uKAogICAgICAgIG9u
+UHJlc3NlZDogKCkgYXN5bmMgewogICAgICAgICAgaWYgKGtEZWJ1Z01vZGUp
+IHsKICAgICAgICAgICAgcHJpbnQoCiAgICAgICAgICAgIGNhbWVyYUNvbnRy
+b2xsZXIuYWN0aW9uX2NoYW5nZV9jYW1lcmEoCiAgICAgICAgICAgICAgY2Ft
+ZXJhX2lkOiAxLAogICAgICAgICAgICAgIHNldFN0YXRlOiBzZXRTdGF0ZSwK
+ICAgICAgICAgICAgICBtb3VudGVkOiAoKSB7CiAgICAgICAgICAgICAgICBy
+ZXR1cm4gbW91bnRlZDsKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAg
+IG9uQ2FtZXJhTm90SW5pdDogKCkge30sCiAgICAgICAgICAgICAgb25DYW1l
+cmFOb3RTZWxlY3Q6ICgpIHt9LAogICAgICAgICAgICAgIG9uQ2FtZXJhTm90
+QWN0aXZlOiAoKSB7fSwKICAgICAgICAgICAgKSwKICAgICAgICAgICk7CiAg
+ICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICBjaGlsZDogY29uc3QgSWNv
+bigKICAgICAgICAgIEljb25zLmFkZF9jaXJjbGVfb3V0bGluZV9zaGFycCwK
+ICAgICAgICApLAogICAgICApLAogICAgKTsKICB9Cn0KYGBg
 
-
-## Install
-
-```bash
-flutter pub add camera_universal
-```
-
-## Quickstart
-
-```dart
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:camera_universal/camera_universal.dart';
-void main(List<String> args) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    const MaterialApp(
-      home: MainApp(),
-    ),
-  );
-}
-class MainApp extends StatefulWidget {
-  const MainApp({
-    super.key,
-  });
-  @override
-  State<MainApp> createState() => _MainAppState();
-}
-class _MainAppState extends State<MainApp> {
-  CameraController cameraController = CameraController();
-  @override
-  void initState() {
-    super.initState();
-    task();
-  }
-  Future<void> task() async {
-    await cameraController.initializeCameras();
-    await cameraController.initializeCamera(
-      setState: setState,
-    );
-    await cameraController.activateCamera(
-      setState: setState,
-      mounted: () {
-        return mounted;
-      },
-    );
-  }
-  @override
-  void dispose() {
-    cameraController.dispose();
-    super.dispose();
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Camera(
-        cameraController: cameraController,
-        onCameraNotInit: (context) {
-          return const SizedBox.shrink();
-        },
-        onCameraNotSelect: (context) {
-          return const SizedBox.shrink();
-        },
-        onCameraNotActive: (context) {
-          return const SizedBox.shrink();
-        },
-        onPlatformNotSupported: (context) {
-          return const SizedBox.shrink();
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          if (kDebugMode) {
-            print(
-            cameraController.action_change_camera(
-              camera_id: 1,
-              setState: setState,
-              mounted: () {
-                return mounted;
-              },
-              onCameraNotInit: () {},
-              onCameraNotSelect: () {},
-              onCameraNotActive: () {},
-            ),
-          );
-          }
-        },
-        child: const Icon(
-          Icons.add_circle_outline_sharp,
-        ),
-      ),
-    );
-  }
-}
-```
+<!-- START GLOBAL CORPORATION -->
+404: Not Found
+<!-- END GLOBAL CORPORATION -->
