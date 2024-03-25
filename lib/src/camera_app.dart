@@ -81,6 +81,7 @@ class CameraController {
             camera_package.ResolutionPreset.max,
           );
           is_select_camera = true;
+          this.camera_id = camera_mobile_controller.cameraId;
           await activateCamera(setState: setState, mounted: mounted);
           return;
         }
@@ -91,7 +92,7 @@ class CameraController {
         for (var i = 0; i < camera_mobile_datas.length; i++) {
           camera_package.CameraDescription camera_mobile_data = camera_mobile_datas[i];
           if (i == (camera_id - 1)) {
-            camera_id = await camera_windows.createCamera(
+            this.camera_id = await camera_windows.createCamera(
               camera_mobile_data,
               camera_package.ResolutionPreset.max,
             );
@@ -103,6 +104,25 @@ class CameraController {
       }
     }
     return;
+  }
+
+  Future<void> initializeCameraByFacing({
+      required bool isFront,
+      required void Function(void Function() callback) setState,
+      required bool Function() mounted,
+  }) async {
+    if (!is_camera_init) {
+      return;
+    }
+    int cameraId = 1;
+    for (int i = 0; i < camera_mobile_datas.length; i++) {
+      camera_package.CameraDescription camera_mobile_data = camera_mobile_datas[i];
+      if (camera_mobile_data.lensDirection == (isFront ? camera_package.CameraLensDirection.front : camera_package.CameraLensDirection.back)) {
+        cameraId = i + 1;
+        break;
+      }
+    }
+    return initializeCameraById(camera_id: cameraId, setState: setState, mounted: mounted);
   }
 
   Future<void> activateCamera({
