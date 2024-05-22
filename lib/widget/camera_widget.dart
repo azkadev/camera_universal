@@ -2,7 +2,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import "package:camera_universal/src/camera.dart" as camera;
+import "package:camera_universal/src/camera_utils.dart" as camera;
 import 'package:universal_io/io.dart';
 import 'package:camera/camera.dart' as camera_package;
 

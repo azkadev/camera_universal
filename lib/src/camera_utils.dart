@@ -3,8 +3,8 @@
 import "package:flutter/widgets.dart";
 import "package:universal_io/io.dart";
 
-import "camera_app.dart";
-export "camera_app.dart";
+import "camera_controller.dart";
+export "camera_controller.dart";
 
 extension CameraControllerExtensions on CameraController {
   Widget widget_build_preview({

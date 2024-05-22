@@ -3,5 +3,5 @@
 // ignore_for_file: non_constant_identifier_names
 
 // import 'dart:io';
-export "src/camera.dart";
-export "widget/camera.dart";
+export "src/camera_utils.dart";
+export "widget/camera_widget.dart";
